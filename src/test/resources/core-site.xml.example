@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!-- DO NOT INCLUDE IN GIT -->
+<configuration>
+    <property>
+        <name>test.fs.oss.name</name>
+        <value>oss://xxx</value>
+        <description>URI of the OSS bucket e.g. oss://xxx. Required.</description>
+    </property>
+    <property>
+        <name>test.fs.oss.tmp.dir</name>
+        <value>/user/dragon-tmp</value>
+        <description>Absolute path to a test directory on OSS. Not all tests use this, unfortunately.</description>
+    </property>
+    <property>
+        <name>fs.oss.accessKeyId</name>
+        <value>xxx</value>
+    </property>
+    <property>
+        <name>fs.oss.secretAccessKey</name>
+        <value>xxx</value>
+    </property>
+    <property>
+        <name>fs.oss.buffer.dir</name>
+        <value>/tmp</value>
+        <description>Path to local directory where temp files are kept before being uploaded to OSS.</description>
+    </property>
+</configuration>

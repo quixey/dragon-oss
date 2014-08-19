@@ -1,0 +1,6 @@
+*.iml
+out/
+.idea/
+.gradle/
+build/
+src/test/resources/core-site.xml

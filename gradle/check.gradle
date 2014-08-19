@@ -1,0 +1,30 @@
+configure(allprojects.findAll { it.buildFile != null }) { project ->
+
+    apply plugin: 'findbugs'
+    findbugs {
+        toolVersion = '2.0.3'
+        ignoreFailures = false
+    }
+
+    // checks for code problems (e.g. unused stuff)
+    apply plugin: 'pmd'
+    pmd {
+        toolVersion = '5.0.5'
+    }
+    tasks.withType(Pmd) {
+        reports.html.enabled true
+    }
+
+    // checks code coverage
+    apply plugin: 'jacoco'
+
+    // use junit
+    test {
+        classpath += configurations.provided
+        ext.workingDirectory = 'build/'
+        if (!new File("${rootProject.projectDir}/src/test/resources/core-site.xml").exists()) {
+            exclude 'com/quixey/hadoop/fs/oss/CloudOSSFileSystemContractTest.class'
+        }
+    }
+
+}
